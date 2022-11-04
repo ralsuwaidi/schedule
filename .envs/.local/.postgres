@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=schedule
+POSTGRES_USER=NnLEthEVINmCYRVOGkEcpsHzxbtCWLMi
+POSTGRES_PASSWORD=ekWfkNr7s57LqGSlVcQiBjbeIbwpWIe8LMl2lQ0w0PHIG63UQHVDBHmFWn4uZVg6
