@@ -5,62 +5,59 @@
 <div class="mt-16 md:mt-28">
 
 
-
-    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent"
-            role="tablist">
-            <li class="mr-2" role="presentation">
-                <button
-                    class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
-                    id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile"
-                    aria-selected="true">1 - Profile</button>
-            </li>
-            <li class="mr-2" role="presentation">
-                <button
-                    class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
-                    id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard"
-                    aria-selected="false">2 - Dashboard</button>
-            </li>
-            <li class="mr-2" role="presentation">
-                <button
-                    class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
-                    id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings"
-                    aria-selected="false">3 - Settings</button>
-            </li>
-            <li role="presentation">
-                <button
-                    class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
-                    id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts"
-                    aria-selected="false">4 - Contacts</button>
-            </li>
-        </ul>
-    </div>
-    <div id="myTabContent">
-        <div class="" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-            {% include "./components/form.html" %}
-
+    <header class="pt-6 px-3 md:px-0 mb-16">
+        <div class=" ">
+          <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Create Event</h1>
         </div>
-        <div class="hidden " id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+      </header>
 
-            {% include "./components/form-poc.html" %}
-            
-        </div>
-        <div class="hidden " id="settings" role="tabpanel"
-            aria-labelledby="settings-tab">
-         
-            {% include "./components/form-detail.html" %}
-            
 
+    <form action="#" method="POST">
+
+
+
+        <div class="hidden sm:block" aria-hidden="true">
+            <div class="py-5">
+                <div class="border-t border-gray-200"></div>
+            </div>
         </div>
-        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="contacts" role="tabpanel"
-            aria-labelledby="contacts-tab">
-            <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong
-                    class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>.
-                Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps
-                classes to control the content visibility and styling.</p>
+        {% include "./components/form-organization.html" %}
+        <div class="hidden sm:block" aria-hidden="true">
+            <div class="py-5">
+                <div class="border-t border-gray-200"></div>
+            </div>
         </div>
-    </div>
+
+
+        {% include "./components/form-poc.html" %}
+        <div class="hidden sm:block" aria-hidden="true">
+            <div class="py-5">
+                <div class="border-t border-gray-200"></div>
+            </div>
+        </div>
+
+
+        {% include "./components/form-event.html" %}
+        <div class="hidden sm:block" aria-hidden="true">
+            <div class="py-5">
+                <div class="border-t border-gray-200"></div>
+            </div>
+        </div>
+
+
+        {% include "./components/form-detail.html" %}
+        <div class="hidden sm:block" aria-hidden="true">
+            <div class="py-5">
+                <div class="border-t border-gray-200"></div>
+            </div>
+        </div>
+
+        <div class=" px-4 pt-3 pb-16 sm:px-6">
+            <button type="submit"
+              class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Create Event</button>
+          </div>
+
+    </form>
 
 
 
