@@ -2,6 +2,27 @@
 
 
 {% block content %}
+
+{% include "./components/header.html" %}
+{% include "./components/info_1.html" %}
+
+
 <iframe src="https://embed.styledcalendar.com/#EhJ0fw9rXPaKyV7pe4pF" title="Styled Calendar"
-    class="styled-calendar-container" style="width: 100%; border: none;" data-cy="calendar-embed-iframe"></iframe>
+    class="styled-calendar-container mt-28" style="width: 100%; border: none;" data-cy="calendar-embed-iframe"></iframe>
+
+
+<div class="mt-5">
+    {% include "./components/features.html" %}
+</div>
+
+
+<div class="mt-5">
+    {% include "./components/steps.html" %}
+</div>
+
+
+<div class="mt-5">
+    {% include "./components/newsletter.html" %}
+</div>
+
 {% endblock %}
