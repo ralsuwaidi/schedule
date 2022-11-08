@@ -1,4 +1,5 @@
 
+{% load tailwind_filters %}
 
 <div>
   <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -15,31 +16,9 @@
           <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 
 
-            <div class="col-span-6 sm:col-span-4">
-              <label for="organization" class="block text-sm font-medium text-gray-700">Organization Name</label>
-              <input type="text" name="organization" id="organization" autocomplete="email"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                <p class="mt-2 text-sm text-gray-500">If you are not part of an organization please leave empty.</p>
-              </div>
-
-
-
-
-            <fieldset>
-              <div class="mt-4 space-y-4">
-                <div class="flex items-start">
-                  <div class="flex h-5 items-center">
-                    <input id="offers" name="offers" type="checkbox"
-                      class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                  </div>
-                  <div class="ml-3 text-sm">
-                    <label for="offers" class="font-medium text-gray-700">Is your event private?</label>
-                    <p class="text-gray-500">Private events will be hidden from the public.</p>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-
+           
+                  {{ form|crispy }}
+                  
 
           </div>
         </div>

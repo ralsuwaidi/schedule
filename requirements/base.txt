@@ -24,3 +24,4 @@ drf-spectacular==0.24.2  # https://github.com/tfranzel/drf-spectacular
 # Project
 # ------------------------------------------------------------------------------
 eventbrite==3.3.5
+gcsa==2.0.0

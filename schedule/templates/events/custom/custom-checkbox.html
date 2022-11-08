@@ -1,0 +1,9 @@
+{% load crispy_forms_field %}
+
+<div class="flex h-5 items-center">
+        {% crispy_field field 'class' 'h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500' %}
+</div>
+<div class="ml-3 text-sm">
+    <label for="{{field.id_for_label}}" class="font-medium text-gray-700">{{ field.label }}</label>
+    <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
+</div>

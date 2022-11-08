@@ -276,3 +276,5 @@ schedule/media/
 .env
 .envs/*
 !.envs/.local/
+
+.credentials
