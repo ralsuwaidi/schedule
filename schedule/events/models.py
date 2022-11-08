@@ -47,6 +47,7 @@ class EventModel(models.Model):
     
     # to save to google calendar and change event details
     gc_id = models.CharField("Google Event Id", blank=True, null=True, max_length=50)
+    is_updated = models.BooleanField(default=False)
 
     is_approved = models.BooleanField(default=False)
     is_rejected = models.BooleanField(default=False)
@@ -56,11 +57,24 @@ class EventModel(models.Model):
 
 
     def save(self, *args, **kwargs):
+        # calendar details must be saved in .credentials
+        calendar = GoogleCalendar(credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
+
+        # if self.is_approved and self.gc_id != None and not self.private and not self.is_updated:
+        #     title = self.event_name
+        #     description = '<h2>' + self.organization + '</h2>' + '<br/>' + (self.description or '') + '<br/><br/>' + self.event_type + '<br/>' + self.audience
+            
+        #     event = calendar.get_event(self.gc_id)
+        #     event.summary = title
+        #     event.description = description
+        #     event.color_id = '1'
+        #     calendar.update_event(event)
+
+        #     self.is_updated = True
+
+        ## TBC event until approved
         if self.gc_id == None:
             # create a google event TBC
-            print(os.getcwd())
-            calendar = GoogleCalendar(credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
-
             
             # yellow color event
             color_id = '5'
