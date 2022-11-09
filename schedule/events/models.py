@@ -1,6 +1,5 @@
 from django.db import models
 from gcsa.event import Event
-from gcsa.google_calendar import GoogleCalendar
 import os
 
 # Create your models here.

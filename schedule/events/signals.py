@@ -8,7 +8,7 @@ from gcsa.google_calendar import GoogleCalendar
 
 @receiver(post_save, sender=EventModel)
 def create_event(sender, instance, created, **kwargs):
-    calendar = GoogleCalendar(credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
+    calendar = GoogleCalendar('e0e86510c60950ccb90b85667fafa7c23bbffbe7cd6b361a9f80320d09eca1d0@group.calendar.google.com',credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
     if not created:
         if instance.is_approved:
             if not instance.private:
@@ -68,7 +68,7 @@ def create_event(sender, instance, created, **kwargs):
 def delete_event(sender, instance, **kwargs):
     # delete event on model delete
     try:
-        calendar = GoogleCalendar(credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
+        calendar = GoogleCalendar('e0e86510c60950ccb90b85667fafa7c23bbffbe7cd6b361a9f80320d09eca1d0@group.calendar.google.com',credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
         event = calendar.get_event(instance.gc_id)
         calendar.delete_event(event)
     except:
