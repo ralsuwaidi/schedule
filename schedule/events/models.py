@@ -29,6 +29,7 @@ class EventModel(models.Model):
     private = models.BooleanField("Is your event private?",help_text="Private events will be hidden from the public.", default=False )
     
     poc_name = models.CharField("POC Name", help_text="Name of the person we should contact", max_length=100)
+    phone = models.CharField("Phone number", max_length=50)
     email = models.EmailField("Email", help_text="Email of the person we should contact")
 
     event_name = models.CharField("Event Name", help_text="The name of the event will appear in eventbrite", max_length=100)

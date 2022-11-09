@@ -14,7 +14,8 @@ class OrganizationForm(forms.Form):
 
 
 class POCForm(forms.Form):
-    poc_name = forms.CharField(help_text="Name of the person we should contact", max_length=100)
+    poc_name = forms.CharField(label="Name",help_text="Name of the person we should contact", max_length=100)
+    phone = forms.CharField(help_text="Phone number (e.g +971 50 XXXXXXX)")
     email = forms.EmailField(help_text="Email of the person we should contact")
 
 
