@@ -8,7 +8,6 @@ services:
     image: schedule_production_django
     platform: linux/x86_64
     depends_on:
-      - postgres
       - redis
     env_file:
       - ./.envs/.production/.django
