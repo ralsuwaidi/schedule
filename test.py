@@ -8,7 +8,7 @@ from gcsa.attachment import Attachment
 from beautiful_date import Jan, Apr, Nov
 
 
-calendar = GoogleCalendar()
+calendar = GoogleCalendar(credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
 
 # yellow color event
 color_id = '4'
