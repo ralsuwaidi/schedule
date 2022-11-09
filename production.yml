@@ -1,9 +1,5 @@
 version: '3'
 
-volumes:
-  schedule_postgres_data: {}
-  schedule_postgres_data_backups: {}
-
 services:
   django:
     build:
@@ -25,22 +21,6 @@ services:
       - traefik.http.routers.calendar.tls=true
       - traefik.http.routers.calendar.tls.certresolver=lets-encrypt
       - traefik.port=8086
-    networks:
-      - chq-net
-      - internal
-
-  postgres:
-    build:
-      context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
-    image: schedule_production_postgres
-    volumes:
-      - schedule_postgres_data:/var/lib/postgresql/data:Z
-      - schedule_postgres_data_backups:/backups:z
-    ports:
-      - 5433:5432
-    env_file:
-      - ./.envs/.production/.postgres
     networks:
       - chq-net
       - internal

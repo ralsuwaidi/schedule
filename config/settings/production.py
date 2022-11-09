@@ -1,6 +1,19 @@
 from .base import *  # noqa
 from .base import env
 
+# Azure Storage for Media Files
+# ------------------------------------------------------------------------------
+# https://django-storages.readthedocs.io/en/latest/backends/azure.html
+# Make sure that the Azure Data Storage Account has the hierarchical option set to Enable when creating the account.
+# It cannot be changed after creation!
+AZURE_ACCOUNT_NAME = env("AZURE_ACCOUNT_NAME")
+AZURE_ACCOUNT_KEY = env("AZURE_ACCOUNT_KEY")
+AZURE_CUSTOM_DOMAIN = f"{AZURE_ACCOUNT_NAME}.blob.core.windows.net"
+AZURE_CONTAINER = "media"  # this container must be created in Azure Storage Account before running the code.
+# Subdirectories can be created during runtime.
+DEFAULT_FILE_STORAGE = "storages.backends.azure_storage.AzureStorage"
+MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{AZURE_CONTAINER}/"  # override MEDIA_RL that was set in base.py
+
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
@@ -65,7 +78,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
 DEFAULT_FROM_EMAIL = env(
     "DJANGO_DEFAULT_FROM_EMAIL",
-    default="schedule <noreply@calendar.codershq.ae>",
+    default="CodersHQ <admin@codershq.ae>",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
