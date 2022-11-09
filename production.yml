@@ -37,6 +37,8 @@ services:
     volumes:
       - schedule_postgres_data:/var/lib/postgresql/data:Z
       - schedule_postgres_data_backups:/backups:z
+    ports:
+      - 5433:5432
     env_file:
       - ./.envs/.production/.postgres
     networks:
