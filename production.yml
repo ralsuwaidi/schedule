@@ -1,5 +1,9 @@
 version: '3'
 
+volumes:
+  schedule_postgres_data: {}
+  schedule_postgres_data_backups: {}
+
 services:
   django:
     build:
@@ -8,6 +12,7 @@ services:
     image: schedule_production_django
     platform: linux/x86_64
     depends_on:
+      - postgres
       - redis
     env_file:
       - ./.envs/.production/.django
@@ -20,6 +25,20 @@ services:
       - traefik.http.routers.calendar.tls=true
       - traefik.http.routers.calendar.tls.certresolver=lets-encrypt
       - traefik.port=8086
+    networks:
+      - chq-net
+      - internal
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: schedule_production_postgres
+    volumes:
+      - schedule_postgres_data:/var/lib/postgresql/data:Z
+      - schedule_postgres_data_backups:/backups:z
+    env_file:
+      - ./.envs/.production/.postgres
     networks:
       - chq-net
       - internal
