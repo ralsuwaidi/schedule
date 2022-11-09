@@ -1,8 +1,6 @@
 version: '3'
 
-volumes:
-  schedule_postgres_data: {}
-  schedule_postgres_data_backups: {}
+
 
 services:
   django:
@@ -27,18 +25,7 @@ services:
       - traefik.port=8086
     networks:
       - chq-net
-
-
-  postgres:
-    build:
-      context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
-    image: schedule_production_postgres
-    volumes:
-      - schedule_postgres_data:/var/lib/postgresql/data:Z
-      - schedule_postgres_data_backups:/backups:z
-    env_file:
-      - ./.envs/.production/.postgres
+      - internal
 
 
   redis:
