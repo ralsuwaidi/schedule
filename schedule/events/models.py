@@ -53,42 +53,7 @@ class EventModel(models.Model):
     is_rejected = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.event_name
-
-
-    def save(self, *args, **kwargs):
-        # calendar details must be saved in .credentials
-        calendar = GoogleCalendar(credentials_path='./.credentials/credentials.json', token_path='./.credentials/token.pickle')
-
-        # if self.is_approved and self.gc_id != None and not self.private and not self.is_updated:
-        #     title = self.event_name
-        #     description = '<h2>' + self.organization + '</h2>' + '<br/>' + (self.description or '') + '<br/><br/>' + self.event_type + '<br/>' + self.audience
-            
-        #     event = calendar.get_event(self.gc_id)
-        #     event.summary = title
-        #     event.description = description
-        #     event.color_id = '1'
-        #     calendar.update_event(event)
-
-        #     self.is_updated = True
-
-        ## TBC event until approved
-        if self.gc_id == None:
-            # create a google event TBC
-            
-            # yellow color event
-            color_id = '5'
-            event = Event(
-                    'TBC',
-                    start=self.event_start,
-                    end=self.event_end,
-                    color_id=color_id
-                ) 
-            event = calendar.add_event(event)
-            self.gc_id = event.event_id
-
-        super(EventModel, self).save(*args, **kwargs)
-
+        return str(self.pk) + ' ' + self.event_name
 
 
 class PermitModel(models.Model):
