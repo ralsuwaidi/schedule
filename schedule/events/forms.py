@@ -66,5 +66,5 @@ class PermitForm(ModelForm):
             'equipment',
             'has_external_setup',
             'setup_details',
-            'setup_datetime',
+            # 'setup_datetime',
         ]

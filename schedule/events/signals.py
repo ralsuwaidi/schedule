@@ -3,6 +3,7 @@ from django.dispatch import receiver
 from .models import EventModel, PermitModel
 from gcsa.event import Event
 from gcsa.google_calendar import GoogleCalendar
+        import requests
 
 
 
@@ -61,6 +62,18 @@ def create_event(sender, instance, created, **kwargs):
         instance.gc_id = event.event_id
         instance.save()
         post_save.connect(create_event, sender=EventModel)
+
+        ## send notification
+        url = 'https://ntfy.sh/chq-events'
+        headers = {
+            "Title": "New CHQ Event Added " + str(instance.id),
+
+        }
+        data = {
+            'data': 'A new event has been added. Please log into the admin panel to view and approve'
+        }
+        requests.post(url, json = data, headers=headers)
+
 
 
 
