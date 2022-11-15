@@ -3,7 +3,7 @@ from django.dispatch import receiver
 from .models import EventModel, PermitModel
 from gcsa.event import Event
 from gcsa.google_calendar import GoogleCalendar
-        import requests
+import requests
 
 
 
