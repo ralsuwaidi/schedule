@@ -44,7 +44,7 @@ class EventModel(models.Model):
 
     attendees = models.IntegerField("Number of Attendees", help_text="Number of expected attendees if the event is private", default=0, null=True, blank=True)
     seating = models.CharField('Seating arrangement', choices=SEATING_CHOICE, help_text='What style of seating are you looking for?', default='TH', max_length=2)
-    
+    other_seating = models.TextField("Other Seating Arrangement", help_text="If none of the above satisfies your requirement please detail how you would like the seating arrangements to be", null=True, blank=True)
     # to save to google calendar and change event details
     gc_id = models.CharField("Google Event Id", blank=True, null=True, max_length=50)
     is_updated = models.BooleanField(default=False)

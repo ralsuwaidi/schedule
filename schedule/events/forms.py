@@ -52,6 +52,7 @@ class EventForm(forms.Form):
     comments = forms.CharField(widget=forms.Textarea(attrs={"rows":"5"}), help_text="Any additional comments?", required=False)
     attendees = forms.IntegerField(label="Number of Attendees", help_text="Number of expected attendees if the event is private", required=False, initial=0)
     seating = forms.ChoiceField(choices=SEATING_CHOICE, label='Seating arrangement', help_text='What style of seating are you looking for?')
+    other_seating = forms.CharField(widget=forms.Textarea(attrs={"rows":"5"}), help_text="If none of the above satisfies your requirement please detail how you would like the seating arrangements to be?", required=False)
     
 
 class PermitForm(ModelForm):
